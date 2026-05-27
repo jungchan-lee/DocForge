@@ -1,0 +1,14 @@
+{
+  "documentType": "PNG",
+  "chunks": [
+    {
+      "chunkId": "chunk_0",
+      "text": "@ 현실 추천\n\nTXT / JSON export= 보통 이렇게 가는게 좋음:\n\n© \"텍스트 ALS Tt export”\n\n9 6++\n\nfor (auto& Block : Page.GetAllTextLikeBlocks())\n{\n\nOut << Block->GetText();\n\n이미지는 나중에 metadata= Pt.\n\nO Ae 구조에서 제일 중요한\n\n너 지금 구조는 이렇게 된 거야:\n6 데이터 계층\n\nImageBlock + OCR + OCRBlock\n\nTextBlock ㅜ raw text\n\n@ 사용 계층\n\nChunking / Sectioning / Export\n> Text-like view2! 사용\n\n",
+      "sectionName": "",
+      "startPage": 0,
+      "endPage": 0,
+      "tokenCount": 113,
+      "characterCount": 453
+    }
+  ]
+}

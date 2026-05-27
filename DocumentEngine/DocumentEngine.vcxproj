@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{aadd1754-2691-439d-b0dc-e18d7c94dc25}</ProjectGuid>
+    <RootNamespace>DocumentEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)ThirdParty\PDFium\include;$(ProjectDir)ThirdParty\Miniz;
+$(ProjectDir)ThirdParty\Pugixml;
+$(ProjectDir)ThirdParty\Stb;C:\Program Files\Tesseract-OCR\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)ThirdParty\PDFium\lib;C:\Program Files\Tesseract-OCR\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);pdfium.dll.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BlockTypeUtility.cpp" />
+    <ClCompile Include="DocumentEngine.cpp" />
+    <ClCompile Include="ExporterRegistry.cpp" />
+    <ClCompile Include="ExportFormatResolver.cpp" />
+    <ClCompile Include="FileTypeResolver.cpp" />
+    <ClCompile Include="FixedSizeChunkBuilder.cpp" />
+    <ClCompile Include="ImageParser.cpp" />
+    <ClCompile Include="JSONExporter.cpp" />
+    <ClCompile Include="JSONUtility.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="DOCXArchive.cpp" />
+    <ClCompile Include="DOCXParser.cpp" />
+    <ClCompile Include="DOCXXMLParser.cpp" />
+    <ClCompile Include="OCRBlockBuilder.cpp" />
+    <ClCompile Include="OCRFilter.cpp" />
+    <ClCompile Include="OCRUtility.cpp" />
+    <ClCompile Include="ParserRegistry.cpp" />
+    <ClCompile Include="PDFDocumetLoader.cpp" />
+    <ClCompile Include="PDFEncoding.cpp" />
+    <ClCompile Include="PDFImageExtractor.cpp" />
+    <ClCompile Include="PDFPageParser.cpp" />
+    <ClCompile Include="PDFPageProcessor.cpp" />
+    <ClCompile Include="PDFPageRenderer.cpp" />
+    <ClCompile Include="PDFParser.cpp" />
+    <ClCompile Include="PDFTextExtractor.cpp" />
+    <ClCompile Include="SimpleSectionDetector.cpp" />
+    <ClCompile Include="TesseractOCRProcessor.cpp" />
+    <ClCompile Include="ThirdParty\Miniz\miniz.c" />
+    <ClCompile Include="ThirdParty\Pugixml\pugixml.cpp" />
+    <ClCompile Include="TXTExporter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlockType.h" />
+    <ClInclude Include="BlockTypeUtility.h" />
+    <ClInclude Include="Document.h" />
+    <ClInclude Include="DocumentBlock.h" />
+    <ClInclude Include="DocumentChunk.h" />
+    <ClInclude Include="DocumentEngine.h" />
+    <ClInclude Include="DocumentPage.h" />
+    <ClInclude Include="DocumentSection.h" />
+    <ClInclude Include="DocumentType.h" />
+    <ClInclude Include="DOCXArchive.h" />
+    <ClInclude Include="DOCXParser.h" />
+    <ClInclude Include="DOCXXMLParser.h" />
+    <ClInclude Include="ExporterRegistry.h" />
+    <ClInclude Include="ExportFormatResolver.h" />
+    <ClInclude Include="ExportFormatType.h" />
+    <ClInclude Include="FileTypeResolver.h" />
+    <ClInclude Include="FixedSizeChunkBuilder.h" />
+    <ClInclude Include="IChunkBuilder.h" />
+    <ClInclude Include="IDocumentExporter.h" />
+    <ClInclude Include="IDocumentParser.h" />
+    <ClInclude Include="ImageBlock.h" />
+    <ClInclude Include="ImageParser.h" />
+    <ClInclude Include="IOCRProcessor.h" />
+    <ClInclude Include="ISectionDetector.h" />
+    <ClInclude Include="JSONExporter.h" />
+    <ClInclude Include="JSONUtility.h" />
+    <ClInclude Include="MetadataTypes.h" />
+    <ClInclude Include="OCRBlock.h" />
+    <ClInclude Include="OCRBlockBuilder.h" />
+    <ClInclude Include="OCRFilter.h" />
+    <ClInclude Include="OCRUtility.h" />
+    <ClInclude Include="ParserRegistry.h" />
+    <ClInclude Include="PDFDocumetLoader.h" />
+    <ClInclude Include="PDFEncoding.h" />
+    <ClInclude Include="PDFImageExtractor.h" />
+    <ClInclude Include="PDFPageParser.h" />
+    <ClInclude Include="PDFPageProcessor.h" />
+    <ClInclude Include="PDFPageRenderer.h" />
+    <ClInclude Include="PDFParser.h" />
+    <ClInclude Include="PDFTextExtractor.h" />
+    <ClInclude Include="Rect.h" />
+    <ClInclude Include="SimpleSectionDetector.h" />
+    <ClInclude Include="TableBlock.h" />
+    <ClInclude Include="TesseractOCRProcessor.h" />
+    <ClInclude Include="TextBlock.h" />
+    <ClInclude Include="ThirdParty\Miniz\miniz.h" />
+    <ClInclude Include="ThirdParty\Pugixml\pugiconfig.hpp" />
+    <ClInclude Include="ThirdParty\Pugixml\pugixml.hpp" />
+    <ClInclude Include="ThirdParty\Stb\stb_image_write.h" />
+    <ClInclude Include="TXTExporter.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

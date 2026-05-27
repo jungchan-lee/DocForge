@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{af267104-3f68-44c6-93e2-26cd956f07c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Types">
+      <UniqueIdentifier>{81299804-b672-4355-8d19-36a59bfd757a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Metadata">
+      <UniqueIdentifier>{db810e41-0cf5-4b73-8350-4e528de8fdec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Blocks">
+      <UniqueIdentifier>{e6a9ad7e-ecef-47b3-a146-48a92c16b731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Document">
+      <UniqueIdentifier>{d29a4d8a-ebe0-4885-b01c-97d29794d397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parser">
+      <UniqueIdentifier>{1f7bb1d6-be35-4449-a78f-221f06bb0cf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parser\PDF">
+      <UniqueIdentifier>{497be6ba-8c23-4845-8d67-54bedc4d6034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parser\DOCX">
+      <UniqueIdentifier>{345e6818-465b-4059-b704-39b5e6321369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{22b16a3b-f925-456b-b1bd-473b0e7d9748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\Miniz">
+      <UniqueIdentifier>{b0303538-7f83-4162-8539-9ba49d3fac1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\Pugixml">
+      <UniqueIdentifier>{fa28e79f-12d5-4d33-954c-040e86ceb607}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\PDFium">
+      <UniqueIdentifier>{f9e8595d-e74c-40be-acea-05b4457f55fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{bb0ad8c1-fe7c-4a6e-ac0a-5ef92ad4af2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parser\Registry">
+      <UniqueIdentifier>{7995dddf-ad32-400a-96c7-8570e3aca292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parser\Utility">
+      <UniqueIdentifier>{d9260682-b518-4775-a8d4-05e6e25032c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter">
+      <UniqueIdentifier>{eb1fb89c-b57f-4c94-96a5-36ed15e72043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{b7464d38-1da2-4703-a25b-e068602b3895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter\Utility">
+      <UniqueIdentifier>{beb0a0f1-c4f4-4d58-b92e-064b25a1c0a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter\Registry">
+      <UniqueIdentifier>{73dbb6ea-f4c7-4ecb-907e-9cf0d1af1709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter\TXT">
+      <UniqueIdentifier>{d7fa9fba-bd61-4cfd-b4e4-d80c359e9f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter\Json">
+      <UniqueIdentifier>{6147e8a7-f509-4551-a467-455780433428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chunk">
+      <UniqueIdentifier>{590385a3-ba73-46da-8ed5-ee6e4607a6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Section">
+      <UniqueIdentifier>{4e70d087-52c0-42fb-aae6-b53a9cf1a0d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCR">
+      <UniqueIdentifier>{6877bd5c-6dc3-4bc5-8120-8ada7919377d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\Stb">
+      <UniqueIdentifier>{5b1a26b2-35cd-43ee-b458-6f85ad88d2e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parser\Image">
+      <UniqueIdentifier>{71cbc3e2-d2c8-418d-bdf5-01e297881abd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PDFParser.cpp">
+      <Filter>Parser\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="DOCXParser.cpp">
+      <Filter>Parser\DOCX</Filter>
+    </ClCompile>
+    <ClCompile Include="DOCXArchive.cpp">
+      <Filter>Parser\DOCX</Filter>
+    </ClCompile>
+    <ClCompile Include="DOCXXMLParser.cpp">
+      <Filter>Parser\DOCX</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\Pugixml\pugixml.cpp">
+      <Filter>ThirdParty\Pugixml</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\Miniz\miniz.c">
+      <Filter>ThirdParty\Miniz</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="PDFDocumetLoader.cpp">
+      <Filter>Parser\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="PDFEncoding.cpp">
+      <Filter>Parser\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="PDFImageExtractor.cpp">
+      <Filter>Parser\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="PDFPageParser.cpp">
+      <Filter>Parser\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="PDFTextExtractor.cpp">
+      <Filter>Parser\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserRegistry.cpp">
+      <Filter>Parser\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="FileTypeResolver.cpp">
+      <Filter>Parser\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportFormatResolver.cpp">
+      <Filter>Exporter\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="ExporterRegistry.cpp">
+      <Filter>Exporter\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTExporter.cpp">
+      <Filter>Exporter\TXT</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONExporter.cpp">
+      <Filter>Exporter\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONUtility.cpp">
+      <Filter>Exporter\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="FixedSizeChunkBuilder.cpp">
+      <Filter>Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleSectionDetector.cpp">
+      <Filter>Section</Filter>
+    </ClCompile>
+    <ClCompile Include="TesseractOCRProcessor.cpp">
+      <Filter>OCR</Filter>
+    </ClCompile>
+    <ClCompile Include="PDFPageRenderer.cpp">
+      <Filter>Parser\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="PDFPageProcessor.cpp">
+      <Filter>Parser\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRBlockBuilder.cpp">
+      <Filter>OCR</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockTypeUtility.cpp">
+      <Filter>Core\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageParser.cpp">
+      <Filter>Parser\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRUtility.cpp">
+      <Filter>OCR</Filter>
+    </ClCompile>
+    <ClCompile Include="OCRFilter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlockType.h">
+      <Filter>Core\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentType.h">
+      <Filter>Core\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Core\Metadata</Filter>
+    </ClInclude>
+    <ClInclude Include="MetadataTypes.h">
+      <Filter>Core\Metadata</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentBlock.h">
+      <Filter>Core\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBlock.h">
+      <Filter>Core\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRBlock.h">
+      <Filter>Core\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageBlock.h">
+      <Filter>Core\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="TableBlock.h">
+      <Filter>Core\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentPage.h">
+      <Filter>Core\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentSection.h">
+      <Filter>Core\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentChunk.h">
+      <Filter>Core\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="Document.h">
+      <Filter>Core\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFParser.h">
+      <Filter>Parser\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="DOCXParser.h">
+      <Filter>Parser\DOCX</Filter>
+    </ClInclude>
+    <ClInclude Include="DOCXArchive.h">
+      <Filter>Parser\DOCX</Filter>
+    </ClInclude>
+    <ClInclude Include="DOCXXMLParser.h">
+      <Filter>Parser\DOCX</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\Pugixml\pugixml.hpp">
+      <Filter>ThirdParty\Pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\Pugixml\pugiconfig.hpp">
+      <Filter>ThirdParty\Pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\Miniz\miniz.h">
+      <Filter>ThirdParty\Miniz</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentEngine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFDocumetLoader.h">
+      <Filter>Parser\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFEncoding.h">
+      <Filter>Parser\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFImageExtractor.h">
+      <Filter>Parser\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFPageParser.h">
+      <Filter>Parser\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFTextExtractor.h">
+      <Filter>Parser\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserRegistry.h">
+      <Filter>Parser\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="FileTypeResolver.h">
+      <Filter>Parser\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="IDocumentParser.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IDocumentExporter.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportFormatResolver.h">
+      <Filter>Exporter\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="ExporterRegistry.h">
+      <Filter>Exporter\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportFormatType.h">
+      <Filter>Core\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="TXTExporter.h">
+      <Filter>Exporter\TXT</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONExporter.h">
+      <Filter>Exporter\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONUtility.h">
+      <Filter>Exporter\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="IChunkBuilder.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedSizeChunkBuilder.h">
+      <Filter>Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="ISectionDetector.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleSectionDetector.h">
+      <Filter>Section</Filter>
+    </ClInclude>
+    <ClInclude Include="IOCRProcessor.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TesseractOCRProcessor.h">
+      <Filter>OCR</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFPageRenderer.h">
+      <Filter>Parser\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\Stb\stb_image_write.h">
+      <Filter>ThirdParty\Stb</Filter>
+    </ClInclude>
+    <ClInclude Include="PDFPageProcessor.h">
+      <Filter>Parser\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRBlockBuilder.h">
+      <Filter>OCR</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockTypeUtility.h">
+      <Filter>Core\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageParser.h">
+      <Filter>Parser\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRUtility.h">
+      <Filter>OCR</Filter>
+    </ClInclude>
+    <ClInclude Include="OCRFilter.h" />
+  </ItemGroup>
+</Project>
