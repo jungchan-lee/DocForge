@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string.h>
+#include <fpdfview.h>
+
 #include "DocumentBlock.h"
 
 namespace DocEngine::Core
@@ -23,5 +25,11 @@ namespace DocEngine::Core
 		bool bHasTextLikeFeatures;
 		float EdgeDensity;
 		bool bIsEmbeddedFontLikeImage;
+
+		float Left = 0.0f;
+		float Top = 0.0f;
+		float Right = 0.0f;
+		float Bottom = 0.0f;
+
 	};
 }

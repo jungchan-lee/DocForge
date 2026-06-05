@@ -26,7 +26,7 @@ namespace DocEngine::Parser
 {
     bool PDFParser::ParseDocument(const std::string& FilePath, Core::Document& OutDocument)
 	{
-        //페이지 로드
+        // PDF 로드
         PDFDocumetLoader Loader;
 
         if (!Loader.LoadDocument(FilePath))
@@ -35,68 +35,164 @@ namespace DocEngine::Parser
         }
 
         OutDocument.DocumentType = Core::EDocumentType::PDF;
+        PDFPageRenderer Renderer;
 
-        //parse page
         PDFPageParser PageParser;
 
-        int PageCount = Loader.GetPageCount();
+        const int PageCount = Loader.GetPageCount();
 
-        //OCR::TesseractOCRProcessor OCRProcessor;
-
-       // OCR::OCRBlockBuilder OCRBuilder(&OCRProcessor);
-
+        // OCR 시스템
         OCR::OCRUtility OCRUtil;
-        OCR::OCRFilter Filter;
+        OCR::OCRFilter OCRFilter;
 
         for (int PageIndex = 0; PageIndex < PageCount; ++PageIndex)
         {
-            /*if (PageIndex < 3)
-            {
-				PDFPageRenderer Renderer;
-
-				Renderer.RenderPageToImage(Loader.GetDocument(), PageIndex, "page_" + std::to_string(PageIndex) + ".png");
-            }*/
-
-            //페이지 생성
-           FPDF_PAGE PdfPage = Loader.LoadPage(PageIndex);
+            // PDF 페이지 로드
+            FPDF_PAGE PdfPage = Loader.LoadPage(PageIndex);
 
             if (!PdfPage)
             {
                 continue;
             }
 
+            // =========================
+            // 1. TEXT BLOCK 추출
+            // =========================
             Core::DocumentPage Page = PageParser.ParsePage(PdfPage, PageIndex);
 
-            //이미지인 부분 추출
+            // =========================
+            // 2. IMAGE BLOCK 추출
+            // =========================
             PDFImageExtractor ImageExtractor;
+            // =====================
+            // IMAGE 탐지
+            // =====================
 
-            auto ImageBlocks = ImageExtractor.ExtractImages(Loader.GetDocument(), PageIndex);
+            auto ImageBlocks =
+                ImageExtractor.ExtractImages(
+                    PdfPage,
+                    PageIndex);
 
-            for (auto& Block : ImageBlocks)
+            for (auto& ImageBlock : ImageBlocks)
             {
-                // ImageBlock 추가
-                Page.ImageBlocks.push_back(Block);
-
-                // OCR 수행
-                std::shared_ptr<Core::OCRBlock> OCRBlock;
-
-                if (Filter.ShouldRunOCR(Block))
+                if (!ImageBlock)
                 {
-                    if (OCRUtil.BuildOCRBlockFromImage(Block, OCRBlock))
-                    {
-                        Page.OCRBlocks.push_back(OCRBlock);
-                    }
+                    continue;
                 }
-            }
 
+                Page.ImageBlocks.push_back(
+                    ImageBlock);
+
+                // =====================
+                // OCR 필터
+                // =====================
+
+                if (!OCRFilter.ShouldRunOCR(
+                    ImageBlock))
+                {
+                    continue;
+                }
+
+                // =====================
+                // OCR용 bitmap 렌더
+                // =====================
+
+                FPDF_BITMAP OCRBitmap =
+                    Renderer.RenderRegionToBitmap(
+                        PdfPage,
+                        ImageBlock->Left,
+                        ImageBlock->Top,
+                        ImageBlock->Right,
+                        ImageBlock->Bottom);
+
+                if (!OCRBitmap)
+                {
+                    continue;
+                }
+
+                // =====================
+                // OCR 수행
+                // =====================
+
+                std::shared_ptr<Core::OCRBlock>
+                    OCRBlock;
+
+                bool bSuccess =
+                    OCRUtil.BuildOCRBlockFromBitmap(
+                        OCRBitmap,
+                        ImageBlock,
+                        OCRBlock);
+
+                // bitmap 메모리 해제
+                FPDFBitmap_Destroy(OCRBitmap);
+
+                if (!bSuccess)
+                {
+                    continue;
+                }
+
+                if (!OCRBlock)
+                {
+                    continue;
+                }
+
+                Page.OCRBlocks.push_back(
+                    OCRBlock);
+            }
+            //auto ExtractedImages = ImageExtractor.ExtractImages(PdfPage, PageIndex);
+
+            //for (auto& Extracted : ExtractedImages)
+            //{
+            //    auto ImageBlock = Extracted.ImageBlock;
+
+            //    FPDF_BITMAP Bitmap = Extracted.Bitmap;
+
+            //    if (!ImageBlock || !Bitmap)
+            //    {
+            //        continue;
+            //    }
+
+            //    // ImageBlock 저장
+            //    Page.ImageBlocks.push_back(ImageBlock);
+
+            //    // OCR 필터
+            //    if (!OCRFilter.ShouldRunOCR(ImageBlock))
+            //    {
+            //        FPDFBitmap_Destroy(Bitmap);
+            //        continue;
+            //    }
+
+            //    // OCR 수행
+            //    std::shared_ptr<Core::OCRBlock>
+            //        OCRBlock;
+
+            //    bool bOCRSuccess = OCRUtil.BuildOCRBlockFromImage( Bitmap,ImageBlock,OCRBlock);
+
+            //    // Bitmap 메모리 해제
+            //    FPDFBitmap_Destroy(Bitmap);
+
+            //    if (!bOCRSuccess)
+            //    {
+            //        continue;
+            //    }
+
+            //    if (!OCRBlock)
+            //    {
+            //        continue;
+            //    }
+
+            //    // OCR 결과 저장
+            //    Page.OCRBlocks.push_back(OCRBlock);
+            //}
+
+            // 페이지 저장
             OutDocument.Pages.push_back(Page);
 
+            // 페이지 해제
             Loader.ClosePage(PdfPage);
         }
 
-        //Loader.UnloadDocument();
-
-		return true;
+        return true;
 	}
 
 

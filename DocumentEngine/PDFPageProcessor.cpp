@@ -82,7 +82,7 @@ namespace DocEngine::Parser
 
         std::string ImagePath = "page_" + std::to_string(PageIndex) + ".png";
 
-        Renderer.RenderPageToImage(Doc, PageIndex, ImagePath);
+       /* Renderer.RenderPageToImage(Doc, PageIndex, ImagePath);
 
         std::string OCRText;
 
@@ -95,7 +95,7 @@ namespace DocEngine::Parser
             Block->GetText() = OCRText;
 
             Result.push_back(Block);
-        }
+        }*/
 
         return Result;
  	}

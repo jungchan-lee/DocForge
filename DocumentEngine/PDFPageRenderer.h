@@ -19,6 +19,12 @@ namespace DocEngine::Parser
 
 		bool RenderPageToImage(FPDF_DOCUMENT Document, int PageIndex, const std::string& OutputPath, RenderResult& OutResult);
 
+		FPDF_BITMAP RenderRegionToBitmap(
+			FPDF_PAGE Page,
+			float Left,
+			float Top,
+			float Right,
+			float Bottom);
 
 	private:
 		int RenderWidth = 1920;

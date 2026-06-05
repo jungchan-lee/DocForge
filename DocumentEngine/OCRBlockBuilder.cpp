@@ -13,36 +13,78 @@ namespace DocEngine::OCR
 
 	std::shared_ptr<Core::OCRBlock> OCRBlockBuilder::BuildFromImageBlock(const std::shared_ptr<Core::ImageBlock>& ImageBlock)
 	{
-        if (!OCRProcessor)
-        {
-            return nullptr;
-        }
+		if (!OCRProcessor)
+		{
+			return nullptr;
+		}
 
-        if (!ImageBlock)
-        {
-            return nullptr;
-        }
+		if (!ImageBlock)
+		{
+			return nullptr;
+		}
 
-        // OCR 처리 후 저장되는 Text 변수
-        std::string OCRText;
+		std::string OCRText;
 
-		// OCR 프로세서를 사용하여 이미지에서 텍스트 추출
-        bool bSuccess = OCRProcessor->ExtractTextFromImage(ImageBlock->ImagePath, OCRText);
+		bool bSuccess = OCRProcessor->ExtractTextFromImage(ImageBlock->ImagePath, OCRText);
 
-        if (!bSuccess)
-        {
-            return nullptr;
-        }
+		if (!bSuccess)
+		{
+			return nullptr;
+		}
 
-		// OCR 결과를 기반으로 OCRBlock 생성
-        auto Block = std::make_shared<Core::OCRBlock>();
+		if (OCRText.empty())
+		{
+			return nullptr;
+		}
 
-        Block->PageIndex = ImageBlock->PageIndex;
+		auto Block = std::make_shared<Core::OCRBlock>();
 
-        Block->Text = OCRText;
+		Block->PageIndex = ImageBlock->PageIndex;
 
-        Block->Bounds = ImageBlock->Bounds;
+		Block->Text = OCRText;
 
-        return Block;
+		return Block;
+	}
+
+	std::shared_ptr<Core::OCRBlock> OCRBlockBuilder::BuildFromBitmap(FPDF_BITMAP Bitmap, const std::shared_ptr<Core::ImageBlock>& ImageBlock)
+    {
+		if (!OCRProcessor)
+		{
+			return nullptr;
+		}
+
+		if (!ImageBlock)
+		{
+			return nullptr;
+		}
+
+		if (!Bitmap)
+		{
+			return nullptr;
+		}
+
+		std::string OCRText;
+
+		bool bSuccess = OCRProcessor->ExtractTextFromBitmap(Bitmap, OCRText);
+
+		if (!bSuccess)
+		{
+			return nullptr;
+		}
+
+		if (OCRText.empty())
+		{
+			return nullptr;
+		}
+
+		auto Block = std::make_shared<Core::OCRBlock>();
+
+		Block->PageIndex = ImageBlock->PageIndex;
+
+		Block->Text = OCRText;
+
+		Block->Bounds = ImageBlock->Bounds;
+
+		return Block;
     }
 }

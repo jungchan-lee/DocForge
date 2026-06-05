@@ -83,4 +83,47 @@ namespace DocEngine::Parser
 
 		return true;
 	}
+	FPDF_BITMAP PDFPageRenderer::RenderRegionToBitmap(FPDF_PAGE Page, float Left, float Top, float Right, float Bottom)
+	{
+		const float Scale = 4.0f;
+
+		const int Width = static_cast<int>((Right - Left) * Scale);
+
+		const int Height = static_cast<int>((Top - Bottom) * Scale);
+
+		if (Width <= 0 || Height <= 0)
+		{
+			return nullptr;
+		}
+
+		FPDF_BITMAP Bitmap = FPDFBitmap_Create(
+				Width,
+				Height,
+				1);
+
+		if (!Bitmap)
+		{
+			return nullptr;
+		}
+
+		FPDFBitmap_FillRect(
+			Bitmap,
+			0,
+			0,
+			Width,
+			Height,
+			0xFFFFFFFF);
+
+		FPDF_RenderPageBitmap(
+			Bitmap,
+			Page,
+			-static_cast<int>(Left * Scale),
+			-static_cast<int>(Bottom * Scale),
+			static_cast<int>(FPDF_GetPageWidth(Page) * Scale),
+			static_cast<int>(FPDF_GetPageHeight(Page) * Scale),
+			0,
+			FPDF_ANNOT);
+
+		return Bitmap;
+	}
 }

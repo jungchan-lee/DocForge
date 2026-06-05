@@ -170,7 +170,9 @@
     <ClCompile Include="OCRUtility.cpp">
       <Filter>OCR</Filter>
     </ClCompile>
-    <ClCompile Include="OCRFilter.cpp" />
+    <ClCompile Include="OCRFilter.cpp">
+      <Filter>OCR</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlockType.h">
@@ -320,6 +322,8 @@
     <ClInclude Include="OCRUtility.h">
       <Filter>OCR</Filter>
     </ClInclude>
-    <ClInclude Include="OCRFilter.h" />
+    <ClInclude Include="OCRFilter.h">
+      <Filter>OCR</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

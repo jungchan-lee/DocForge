@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-
+#include <fpdfview.h>
 
 namespace DocEngine::Core
 {
@@ -20,6 +20,12 @@ namespace DocEngine::OCR
 		OCRUtility();
 
 		bool BuildOCRBlockFromImage(
+			FPDF_BITMAP Bitmap,
+			const std::shared_ptr<Core::ImageBlock>& ImageBlock,
+			std::shared_ptr<Core::OCRBlock>& OutOCRBlock);
+
+		bool BuildOCRBlockFromBitmap(
+			FPDF_BITMAP Bitmap,
 			const std::shared_ptr<Core::ImageBlock>& ImageBlock,
 			std::shared_ptr<Core::OCRBlock>& OutOCRBlock);
 		

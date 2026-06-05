@@ -5,16 +5,37 @@
 
 #include "DocumentEngine.h"
 
-int main()
+int main(int argc, char* argv[])
 {
-    std::cout << "Hello World!\n";
+    //std::cout << "Hello World!\n";
     SetConsoleCP(CP_UTF8);
     SetConsoleOutputCP(CP_UTF8);
 
-	DocEngine::Engine::DocumentEngine Engine;
-	Engine.Process("C:/WorkSpace/DocumentEngine/x64/Debug/samplepng.png", "samplepng.json");
+    /*MessageBoxA(nullptr, "MAIN START", "TEST", MB_OK);
 
-    return 0;
+    std::cout << "argc = " << argc << std::endl;*/
+
+    if (argc < 3)
+    {
+        std::cout << "Usage:\n";
+        std::cout << "DocForge.exe inputfile outputjson\n";
+
+        return -1;
+    }
+
+    const std::string InputFile = argv[1];
+    const std::string OutputFile = argv[2];
+
+    DocEngine::Engine::DocumentEngine Engine;
+
+    bool Result = Engine.Process(InputFile, OutputFile);
+
+    return Result ? 0 : -1;
+
+	/*DocEngine::Engine::DocumentEngine Engine;
+	Engine.Process("C:/WorkSpace/DocumentEngine/x64/Debug/gojodocx.docx", "gojodocx.json");
+
+    return 0;*/
 
 }
 
