@@ -1,6 +1,6 @@
 # DocForge
 
-### C++ 기반 문서 파싱 · OCR · Chunk 처리 엔진
+### AI 시스템을 위한 Native C++ 문서 처리 엔진
 
 ---
 
