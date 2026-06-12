@@ -174,7 +174,9 @@ ParserRegistry
 Document Parser
 
 ├── PDFParser
+
 ├── DOCXParser
+
 └── ImageParser
 
 ↓
@@ -182,8 +184,11 @@ Document Parser
 Document Structure
 
 ├── Pages
+
 ├── TextBlocks
+
 ├── ImageBlocks
+
 └── OCRBlocks
 
 ↓
